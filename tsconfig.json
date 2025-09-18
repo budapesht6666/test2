@@ -43,11 +43,7 @@
 
     "esModuleInterop": false,
     "moduleResolution": "bundler",
-    "noEmitOnError": true,
-  }
-  ,
-  "exclude": [
-    "node_modules",
-    "dist"
-  ]
+    "noEmitOnError": true
+  },
+  "exclude": ["node_modules", "dist"]
 }
