@@ -17,6 +17,7 @@ let speedMs = 120; // initial speed
 let timerId: number | null = null;
 let isPaused = false;
 let isGameOver = false;
+let hueShift = 0; // shifts hues over time for animated rainbow
 
 const scoreEl = document.getElementById('score')!;
 
@@ -53,9 +54,15 @@ function render() {
   // food
   drawCell(food, '#f43f5e');
   // snake
-  for (let i = 0; i < snake.length; i++) {
+  const total = snake.length;
+  for (let i = 0; i < total; i++) {
     const seg = snake[i];
-    const c = i === snake.length - 1 ? '#22c55e' : '#16a34a';
+    const ratio = total > 1 ? i / (total - 1) : 1;
+    const hue = (hueShift + ratio * 300) % 360; // span most of the color wheel
+    const isHead = i === total - 1;
+    const saturation = 85;
+    const lightness = isHead ? 55 : 45;
+    const c = `hsl(${hue} ${saturation}% ${lightness}%)`;
     drawCell(seg, c);
   }
   if (isGameOver) {
@@ -114,6 +121,9 @@ function step() {
   } else {
     snake.shift(); // move forward
   }
+
+  // animate colors a bit each step
+  hueShift = (hueShift + 3) % 360;
 
   render();
 }
