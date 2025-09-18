@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Змейка</title>
+    <style>
+      html, body { height: 100%; margin: 0; background:#0f172a; color:#e2e8f0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+      .wrap { display:flex; align-items:center; justify-content:center; height:100%; padding:24px; box-sizing:border-box; }
+      .panel { width: 100%; max-width: 540px; }
+      h1 { margin:0 0 12px; font-weight:700; font-size:24px; letter-spacing:.2px; }
+      .top { display:flex; align-items:center; justify-content:space-between; margin-bottom:12px; }
+      .btns { display:flex; gap:8px; }
+      button { background:#22c55e; color:#052e16; border:none; border-radius:8px; padding:8px 12px; font-weight:700; cursor:pointer; }
+      button.secondary { background:#334155; color:#e2e8f0; }
+      canvas { width: 100%; height: auto; border-radius:12px; background:#020617; box-shadow: 0 10px 30px rgba(0,0,0,.3), inset 0 0 0 1px #0b1220; }
+      .hint { opacity:.8; font-size:12px; margin-top:8px; }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="panel">
+        <div class="top">
+          <h1>Змейка</h1>
+          <div class="btns">
+            <button id="start">Старт</button>
+            <button id="pause" class="secondary">Пауза</button>
+            <button id="reset" class="secondary">Рестарт</button>
+          </div>
+        </div>
+        <canvas id="game" width="420" height="420"></canvas>
+        <div class="hint">Управление: стрелки или WASD. Очки: <span id="score">0</span></div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+  </html>
+
