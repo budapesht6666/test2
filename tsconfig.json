@@ -45,4 +45,9 @@
     "moduleResolution": "bundler",
     "noEmitOnError": true,
   }
+  ,
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }
